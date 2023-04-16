@@ -1,0 +1,9 @@
+# logwatch.conf settings:
+Output = mail
+Format = text
+MailTo = aas
+MailFrom = Logwatch
+Range = Yesterday
+Detail = 5
+# command:
+logwatch --range yesterday --mailto root --service sshd --service vsftpd --detail Med
