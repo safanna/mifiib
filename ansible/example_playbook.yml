@@ -1,0 +1,11 @@
+- hosts: Safonova
+  tasks:
+  - name: Installing packages
+    become: yes 
+    apt:
+      pkg:
+        - cmatrix
+        - cowsay
+        - sl
+      state: latest
+      update_cache: true
