@@ -1,0 +1,28 @@
+NAME                                    READY   STATUS    RESTARTS      AGE    IP           NODE         NOMINATED NODE   READINESS GATES
+pod/db-deployment-6dfdf4f959-9gnq4      1/1     Running   3 (30m ago)   56m    10.244.0.3   aask8s       <none>           <none>
+pod/webapp-deployment-864bd8d5d-pv9m5   1/1     Running   0             9m2s   10.244.2.3   aask8s-m03   <none>           <none>
+
+NAME                     TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE     SELECTOR
+service/db-service       ClusterIP   10.110.155.50   <none>        3306/TCP       5h21m   app=db
+service/kubernetes       ClusterIP   10.96.0.1       <none>        443/TCP        5h28m   <none>
+service/webapp-service   NodePort    10.103.30.148   <none>        80:30000/TCP   5h21m   app=webapp
+
+NAME                                READY   UP-TO-DATE   AVAILABLE   AGE     CONTAINERS   IMAGES   SELECTOR
+deployment.apps/db-deployment       1/1     1            1           5h21m   db           aasdb    app=db
+deployment.apps/webapp-deployment   1/1     1            1           5h21m   webapp       aasws    app=webapp
+
+NAME                                           DESIRED   CURRENT   READY   AGE     CONTAINERS   IMAGES      SELECTOR
+replicaset.apps/db-deployment-689b7d9c67       0         0         0       5h21m   db           database    app=db,pod-template-hash=689b7d9c67
+replicaset.apps/db-deployment-69756b47c8       0         0         0       5h15m   db           database    app=db,pod-template-hash=69756b47c8
+replicaset.apps/db-deployment-6dfdf4f959       1         1         1       4h21m   db           aasdb       app=db,pod-template-hash=6dfdf4f959
+replicaset.apps/db-deployment-745ff6f858       0         0         0       4h44m   db           aasdb       app=db,pod-template-hash=745ff6f858
+replicaset.apps/webapp-deployment-67696fdc84   0         0         0       58m     webapp       aasws       app=webapp,pod-template-hash=67696fdc84
+replicaset.apps/webapp-deployment-67f486b564   0         0         0       5h15m   webapp       webserver   app=webapp,pod-template-hash=67f486b564
+replicaset.apps/webapp-deployment-698c988475   0         0         0       95m     webapp       aasws       app=webapp,pod-template-hash=698c988475
+replicaset.apps/webapp-deployment-75d4498b68   0         0         0       14m     webapp       aasws       app=webapp,pod-template-hash=75d4498b68
+replicaset.apps/webapp-deployment-76cd7c7df    0         0         0       4h5m    webapp       aasws       app=webapp,pod-template-hash=76cd7c7df
+replicaset.apps/webapp-deployment-7844bf59f6   0         0         0       4h44m   webapp       aasws       app=webapp,pod-template-hash=7844bf59f6
+replicaset.apps/webapp-deployment-856745b8d    0         0         0       22m     webapp       aasws       app=webapp,pod-template-hash=856745b8d
+replicaset.apps/webapp-deployment-85f5886b7c   0         0         0       4h21m   webapp       aasws       app=webapp,pod-template-hash=85f5886b7c
+replicaset.apps/webapp-deployment-864bd8d5d    1         1         1       9m2s    webapp       aasws       app=webapp,pod-template-hash=864bd8d5d
+replicaset.apps/webapp-deployment-ff5674b49    0         0         0       5h21m   webapp       webserver   app=webapp,pod-template-hash=ff5674b49
