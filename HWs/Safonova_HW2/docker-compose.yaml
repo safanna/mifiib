@@ -1,0 +1,31 @@
+version: "3"
+services:
+  web:
+    image: safonova
+    container_name: websrv
+    volumes:
+     - ./php:/var/www/html
+    ports:
+     - "80:80"
+    links:
+     - database:database
+    depends_on:
+     - database
+  database:
+    build: ./build/db
+    container_name: database
+    command: '--init-file /data/application/init.sql'
+    restart: always
+    ports:
+     - "3306:3306"
+    volumes:
+     - db:/var/lib/mysql
+     - './init.sql:/data/application/init.sql'
+  client_db:
+    build: ./build/client
+    container_name: client_db
+    tty: true
+    depends_on:
+      - database
+volumes:
+  db:
